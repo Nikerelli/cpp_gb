@@ -17,10 +17,51 @@ struct GameField {
 };
 
 //Task 5
-union MyVariant {
+union InvariantVal {
     int int_val;
     float float_val;
     char char_val;
+};
+
+
+#define integer 1;
+#define character 2;
+#define floating 4;
+struct InvariantValue {
+private:
+    InvariantVal value;
+    unsigned char type;
+public:
+    void set_int(int val) {
+        value.int_val = val;
+        type = integer;
+    }
+
+    void set_float(float val) {
+        value.float_val = val;
+        type = floating;
+    }
+
+    void set_char(char val) {
+        value.char_val = val;
+        type = character;
+    }
+
+    char get_char() {
+        return value.char_val;
+    }
+
+    int get_int() {
+        return value.int_val;
+    }
+
+    float get_float() {
+        return value.float_val;
+    }
+
+    int get_type() {
+        return (int)type;
+    }
 };
 
 int main()
@@ -39,29 +80,26 @@ int main()
 
     //Task 5
 
-    MyVariant variant;
-    bool is_int = false, is_float = false, is_char = false;
+    InvariantValue variant;
 
-    variant.int_val = 10;
-    is_int = true;
+    variant.set_int(10);
 
-    std::cout << "int val (stored): " << variant.int_val << std::endl;
-    std::cout << "float val: " << variant.float_val << std::endl;
-    std::cout << "char val: " << variant.char_val << std::endl;
+    std::cout << "int val: " << variant.get_int() << std::endl;
+    std::cout << "float val: " << variant.get_float() << std::endl;
+    std::cout << "char val: " << variant.get_char() << std::endl;
+    std::cout << "flag: " << variant.get_type() << std::endl << std::endl;
 
-    variant.float_val = 11.0f;
-    is_int = false;
-    is_float = true;
+    variant.set_float(11.0f);
 
-    std::cout << "int val: " << variant.int_val << std::endl;
-    std::cout << "float val (stored): " << variant.float_val << std::endl;
-    std::cout << "char val: " << variant.char_val << std::endl << std::endl;
+    std::cout << "int val: " << variant.get_int() << std::endl;
+    std::cout << "float val: " << variant.get_float() << std::endl;
+    std::cout << "char val: " << variant.get_char() << std::endl;
+    std::cout << "flag: " << variant.get_type() << std::endl << std::endl;
 
-    variant.char_val = 'G';
-    is_char = true;
-    is_float = false;
+    variant.set_char('G');
 
-    std::cout << "int val: " << variant.int_val << std::endl;
-    std::cout << "float val: " << variant.float_val << std::endl;
-    std::cout << "char val (stored): " << variant.char_val << std::endl;
+    std::cout << "int val: " << variant.get_int() << std::endl;
+    std::cout << "float val: " << variant.get_float() << std::endl;
+    std::cout << "char val: " << variant.get_char() << std::endl;
+    std::cout << "flag: " << variant.get_type() << std::endl << std::endl;
 }
