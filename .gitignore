@@ -3,3 +3,14 @@
 ################################################################################
 
 /HW2/Debug
+/HW2/CPP_HW_2/Debug
+/HW_3/.vs/HW_3/v16
+/HW_3/Debug
+/HW_3/HW_3/Debug
+*.sln
+*.user
+*.filters
+*.vcxproj
+*.db
+*.suo
+*.ipch
