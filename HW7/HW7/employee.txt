@@ -1,0 +1,4 @@
+Age: 24
+Salary: 250000
+Name: Mishanya Torpeda
+Category: Mishanya Torpeda
