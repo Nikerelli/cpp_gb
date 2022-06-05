@@ -25,7 +25,7 @@ void task1() {
 
     std::cin >> a >> b;
 
-    std::string str = a + b >= 20
+    std::string str = a + b <= 20 && a + b >= 10
         ? "true"
         : "false";
 
